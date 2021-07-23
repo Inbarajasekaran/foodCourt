@@ -4,10 +4,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
-
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegisterationComponent } from './registeration/registeration.component';
 import { MaterialModule } from './materialModule/material';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { FoodMenuComponent } from './components/food-menu/food-menu.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +16,15 @@ import { MaterialModule } from './materialModule/material';
     LoginComponent,
     DashboardComponent,
     RegisterationComponent,
+    FoodMenuComponent,
+    ToolbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

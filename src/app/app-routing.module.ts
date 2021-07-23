@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardGuard } from './Auth/auth-guard.guard';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { FoodMenuComponent } from './components/food-menu/food-menu.component';
 import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegisterationComponent } from './registeration/registeration.component';
-import { FoodMenuComponent } from './food-menu/food-menu.component';
+
 
 const routes: Routes = [
   { path: '', component: LoginComponent,},
