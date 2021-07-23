@@ -5,9 +5,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { FoodMenuComponent } from './components/food-menu/food-menu.component';
-import { RegisterationComponent } from './components/registeration/registeration.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { RegisterationComponent } from './registeration/registeration.component';
 import { MaterialModule } from './materialModule/material';
 
 @NgModule({
@@ -15,8 +14,7 @@ import { MaterialModule } from './materialModule/material';
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    FoodMenuComponent,
-    RegisterationComponent
+    RegisterationComponent,
   ],
   imports: [
     BrowserModule,
