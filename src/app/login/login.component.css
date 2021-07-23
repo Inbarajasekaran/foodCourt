@@ -1,0 +1,95 @@
+body {
+    background: #00d2ff;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3a7bd5, #00d2ff);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3a7bd5, #00d2ff);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding-top: 150px !important;
+}
+
+
+.body-div {
+    background: #00d2ff;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3a7bd5, #00d2ff);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3a7bd5, #00d2ff);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.mat-form-field {
+    width: 100%;
+    width: 500px;
+}
+
+.error {
+    padding: 16px;
+    width: 300px;
+    color: white;
+    background-color: red;
+}
+
+.button {
+    display: flex;
+    padding: 10px;
+    justify-content: flex-end;
+}
+
+.register-link {
+    display: flex;
+    padding: 10px;
+    justify-content: flex-start;
+}
+
+.input {
+    padding: 15px;
+    font-size: 16px;
+}
+
+.title {
+    background: #283048;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #727c80, #283048);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #5f696d, #283048);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-weight: lighter;
+    color: white;
+    padding: 10px;
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+    margin-top: -16px !important;
+    margin-bottom: 25px !important;
+    display: flex;
+    justify-content: center;
+}
+
+.mat-body {
+    display: flex;
+    justify-content: center;
+    width: 550px;
+}
+
+mat-form-field {
+    width: 420px !important;
+}
+
+@media screen and (max-width: 426px) {
+    .body-div {
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+    }
+    mat-form-field {
+        font-size: 12px;
+        max-width: 150px !important;
+    }
+    mat-card-title {
+        font-weight: 300 !important;
+    }
+    .mat-body {
+        display: flex;
+        justify-content: center;
+        width: 200px;
+    }
+}

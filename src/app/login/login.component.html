@@ -1,1 +1,40 @@
-<p>login works...!</p>
+<body class="col-12 col-sm-12 col-xsm-12">
+    <div class="body-div col-12 col-sm-12 col-xsm-12 d-flex justify-content-center">
+        <mat-card>
+
+            <div class="title">
+                <mat-card-title>Login</mat-card-title>
+            </div>
+
+            <div class="mat-body">
+                <mat-card-content>
+                    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+
+                        <div class="input">
+                            <mat-form-field>
+                                <input type="text" matInput placeholder="Username" formControlName="username">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="input">
+                            <mat-form-field>
+                                <input type="password" matInput placeholder="Password" formControlName="password">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="button">
+                            <button type="submit" mat-raised-button [disabled]=!loginForm.valid>Login</button>
+                        </div>
+
+                        <div class="register-link">
+                            <a routerLink="./register">Not Yet Register</a>
+                        </div>
+
+                    </form>
+                </mat-card-content>
+            </div>
+
+        </mat-card>
+    </div>
+    <router-outlet></router-outlet>  
+</body>
