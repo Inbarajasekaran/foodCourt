@@ -1,0 +1,118 @@
+<!-- <div class="container col-sm-12 col-md-12 col-12 d-flex justify-content-center mt-5 p-3 mat-elevation-z1 flex-column">
+    <div class="col-12 col-sm-12 col-md-12 justify-content-center pt-5">
+        <h2 class="d-flex justify-content-center">Register Here</h2>
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-12 justify-contentt-center">
+        <form [formGroup]="registerForm" (ngSubmit)="submit()">
+
+        </form>
+    </div>
+   
+</div> -->
+
+<div class="container col-sm-12 col-md-12 col-12 d-flex justify-content-center mt-5 p-3 mat-elevation-z1 flex-column">
+    <h3>User Registration</h3>
+    <div class="container col-sm-6 col-12">
+        <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()">
+            <div class="col-12 d-flex row mb-3">
+                <div class="col-2">
+                    <label for="firstName">First Name</label>
+                </div>
+                <div class="col-10">
+                    <input type="text" formControlName="firstName" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && registerForm.controls.firstName.errors }"
+                        placeholder="Enter First Name here" />
+                    <div *ngIf="submitted && registerForm.controls.firstName.errors" class="invalid-feedback">
+                        <div *ngIf="registerForm.controls.firstName.errors.required">First Name is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 d-flex row mb-3">
+                <div class="col-2">
+                    <label for="lastName">Last Name</label>
+                </div>
+                <div class="col-10">
+                    <input type="text" formControlName="lastName" class="form-control"
+                        placeholder="Enter Last Name here" />
+                </div>
+            </div>
+
+            <div class="col-12 d-flex row mb-3">
+                <div class="col-2">
+                    <label for="username">UserName</label>
+                </div>
+                <div class="col-10">
+                    <input type="text" formControlName="username" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && registerForm.controls.username.errors }"
+                        placeholder="Enter UserName Name here" />
+                    <div *ngIf="submitted && registerForm.controls.username.errors" class="invalid-feedback">
+                        <div *ngIf="registerForm.controls.username.errors.required">UserName is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 d-flex row mb-3">
+                <div class="col-2">
+                    <label for="email">Email</label>
+                </div>
+                <div class="col-10">
+                    <input type="text" formControlName="email" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && registerForm.controls.email.errors }" placeholder="Enter email here" />
+                    <div *ngIf="submitted && registerForm.controls.email.errors" class="invalid-feedback">
+                        <div *ngIf="registerForm.controls.email.errors.required">Email is required</div>
+                        <div *ngIf="registerForm.controls.email.errors.email">Enter valid email address</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 d-flex row mb-3">
+                <div class="col-2">
+                    <label for="email">Phone</label>
+                </div>
+                <div class="col-10">
+                    <input type="text" formControlName="phone" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && registerForm.controls.phone.errors }" placeholder="Enter Phone here" />
+                    <div *ngIf="submitted && registerForm.controls.phone.errors" class="invalid-feedback">
+                        <div *ngIf="registerForm.controls.phone.errors.required">Phone is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 d-flex row mb-3">
+                <div class="col-2">
+                    <label for="email">Password</label>
+                </div>
+                <div class="col-10">
+                    <input type="password" formControlName="password" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && registerForm.controls.password.errors }"
+                        placeholder="Enter Password here" />
+                    <div *ngIf="submitted && registerForm.controls.password.errors" class="invalid-feedback">
+                        <div *ngIf="registerForm.controls.password.errors.required">Password is required</div>
+                        <div *ngIf="registerForm.controls.password.errors.minlength">Password must be at least 6 characters</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 d-flex row mb-3">
+                <div class="col-2">
+                    <label for="email">Retype Password</label>
+                </div>
+                <div class="col-10">
+                    <input type="password" formControlName="retypePassword" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && registerForm.controls.password.errors }"
+                        placeholder="Enter Password here" />
+                    <div *ngIf="!checkPassword(registerForm) && registerForm.controls['retypePassword'].dirty"
+                        class="alert alert-danger">Password does not match</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary" [disabled]="registerForm.invalid">
+                    Register
+                </button>
+                <a routerLink="/login" class="btn btn-link">Login to continue</a>
+            </div>
+        </form>
+    </div>
+</div>
