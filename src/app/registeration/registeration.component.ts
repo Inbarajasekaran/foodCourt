@@ -29,6 +29,7 @@ export class RegisterationComponent implements OnInit {
     });
   }
 
+  get fval() { return this.registerForm.controls; } //insted of using formControlName.controls.errors here using fval()  
 
   onFormSubmit() {
     console.log("Working");
