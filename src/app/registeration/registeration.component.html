@@ -1,19 +1,6 @@
-<!-- <div class="container col-sm-12 col-md-12 col-12 d-flex justify-content-center mt-5 p-3 mat-elevation-z1 flex-column">
-    <div class="col-12 col-sm-12 col-md-12 justify-content-center pt-5">
-        <h2 class="d-flex justify-content-center">Register Here</h2>
-    </div>
-
-    <div class="col-12 col-sm-12 col-md-12 justify-contentt-center">
-        <form [formGroup]="registerForm" (ngSubmit)="submit()">
-
-        </form>
-    </div>
-   
-</div> -->
-
 <div class="container col-sm-12 col-md-12 col-12 d-flex justify-content-center mt-5 p-3 mat-elevation-z1 flex-column">
-    <h3>User Registration</h3>
-    <div class="container col-sm-6 col-12">
+    <h2 class="d-flex justify-content-center" style="text-decoration: underline;">User Registration</h2>
+    <div class="container col-sm-6 col-12 p-0 pt-3">
         <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()">
             <div class="col-12 d-flex row mb-3">
                 <div class="col-2">
@@ -23,7 +10,7 @@
                     <input type="text" formControlName="firstName" class="form-control"
                         [ngClass]="{ 'is-invalid': submitted && fval.firstName.errors }"
                         placeholder="Enter First Name here" />
-                    <div *ngIf="submitted && fval.firstName.errors" class="invalid-feedback">
+                    <div *ngIf="submitted && fval.firstName.errors" class="error-div">
                         <div *ngIf="fval.firstName.errors.required">First Name is required</div>
                     </div>
                 </div>
@@ -41,14 +28,15 @@
 
             <div class="col-12 d-flex row mb-3">
                 <div class="col-2">
-                    <label for="username">UserName</label>
+                    <label for="username">Username</label>
                 </div>
                 <div class="col-10">
-                    <input type="text" formControlName="username" class="form-control"
+                    <input type="text" formControlName="username" class="form-control" (input)="userNameAvail = false"
                         [ngClass]="{ 'is-invalid': submitted && fval.username.errors }"
-                        placeholder="Enter UserName Name here" />
-                    <div *ngIf="submitted && fval.username.errors" class="invalid-feedback">
-                        <div *ngIf="fval.username.errors.required">UserName is required</div>
+                        placeholder="Enter Username here" />
+                    <div *ngIf="submitted" class="error-div">
+                        <div *ngIf="fval.username.errors && fval.username.errors.required">Username is required</div>
+                        <div *ngIf="userNameAvail">Username not available</div>
                     </div>
                 </div>
             </div>
@@ -60,7 +48,7 @@
                 <div class="col-10">
                     <input type="text" formControlName="email" class="form-control"
                         [ngClass]="{ 'is-invalid': submitted && fval.email.errors }" placeholder="Enter email here" />
-                    <div *ngIf="submitted && fval.email.errors" class="invalid-feedback">
+                    <div *ngIf="submitted && fval.email.errors" class="error-div">
                         <div *ngIf="fval.email.errors.required">Email is required</div>
                         <div *ngIf="fval.email.errors.email">Enter valid email address</div>
                     </div>
@@ -73,8 +61,9 @@
                 <div class="col-10">
                     <input type="text" formControlName="phone" class="form-control"
                         [ngClass]="{ 'is-invalid': submitted && fval.phone.errors }" placeholder="Enter Phone here" />
-                    <div *ngIf="submitted && fval.phone.errors" class="invalid-feedback">
+                    <div *ngIf="submitted && fval.phone.errors" class="error-div">
                         <div *ngIf="fval.phone.errors.required">Phone is required</div>
+                        <div *ngIf="fval.phone.errors.minlength || fval.phone.errors.maxlength">Check the number</div>
                     </div>
                 </div>
             </div>
@@ -87,9 +76,9 @@
                     <input type="password" formControlName="password" class="form-control"
                         [ngClass]="{ 'is-invalid': submitted && fval.password.errors }"
                         placeholder="Enter Password here" />
-                    <div *ngIf="submitted && fval.password.errors" class="invalid-feedback">
+                    <div *ngIf="submitted && fval.password.errors" class="error-div">
                         <div *ngIf="fval.password.errors.required">Password is required</div>
-                        <div *ngIf="fval.password.errors.minlength">Password must be at least 6 characters</div>
+                        <div *ngIf="fval.password.errors.minlength">Password must be at least 4 characters</div>
                     </div>
                 </div>
             </div>
@@ -102,17 +91,23 @@
                     <input type="password" formControlName="retypePassword" class="form-control"
                         [ngClass]="{ 'is-invalid': submitted && fval.password.errors }"
                         placeholder="Enter Password here" />
+
                     <div *ngIf="!checkPassword(registerForm) && registerForm.controls['retypePassword'].dirty"
-                        class="alert alert-danger">Password does not match</div>
+                        class="error-div">Password does not match</div>
                 </div>
             </div>
 
-            <div class="form-group">
-                <button class="btn btn-primary" [disabled]="registerForm.invalid">
-                    Register
-                </button>
-                <a routerLink="/login" class="btn btn-link">Login to continue</a>
+            <div class="col-12 col-sm-12 d-flex pt-3 row">
+                <div class="col-sm-6 col-6">
+                    <a routerLink="/login" class="btn btn-link p-0 m-0">Login to continue</a>
+                </div>
+                <div class="col-sm-6 col-6 justify-content-end d-flex">
+                    <button class="btn btn-primary" [disabled]="!checkPassword(registerForm)">
+                        Register
+                    </button>
+                </div>
             </div>
+
         </form>
     </div>
 </div>

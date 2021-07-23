@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, RouterEvent } from '@angular/router';
+import { UserDataService } from '../service/user-data.service';
 
 @Component({
   selector: 'app-registeration',
@@ -9,49 +10,60 @@ import { Router, RouterEvent } from '@angular/router';
 })
 export class RegisterationComponent implements OnInit {
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private router: Router,
-  ) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private userData: UserDataService) { }
+
   registerForm: FormGroup;
   loading = false;
   submitted = false;
+  dataAvail = true;
+  userNameAvail = false;
+  // userData = [{ username: 'Inba', password: '0011' }, { username: 'ADMIN', password: '12345' },]
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      username: ['',[Validators.required]],
-      phone: ['', Validators.required, Validators.minLength(10), Validators.maxLength(10)],
+      username: ['', [Validators.required]],
+      phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(4)]],
       retypePassword: ['', [Validators.required]]
     });
   }
 
-  get fval() { return this.registerForm.controls; } //insted of using formControlName.controls.errors here using fval()  
+  get fval() { return this.registerForm.controls; } //insted of using formControlName.controls.errors in template used fval().controls.errors  
 
   onFormSubmit() {
-    console.log("Working");
-    this.router.navigate['dashboard']
+    this.submitted = true;
+    if (this.registerForm.valid) {
+      for (let i = 0; i < this.userData.userData.length; i++) {
+        this.dataAvail = true
+        if (this.registerForm.controls.username.value == this.userData[i]['username']) {
+          this.dataAvail = false;
+          break;
+        }
+      }
+      if (this.dataAvail == true) {
+        this.userData.userData.push({username: this.registerForm.controls.username.value, password: this.registerForm.controls.password.value}) 
+        console.log(this.userData)
+        this.router.navigateByUrl('/dashboard');
+      }
+    }
+    this.checkUserName()
   }
 
   checkPassword(parameterName: FormGroup) { //ParameterName value should be given as FormGroup
     return parameterName.get('password').value === parameterName.get('retypePassword').value;
   }
 
-  // constructor( private fb: FormBuilder) { }
-  // registerForm: FormGroup
-
-  // ngOnInit(): void {
-  //   this.registerForm = this.fb.group({
-  //     name: ['', [Validators.required]],
-  //     username: ['', [Validators.required]],
-  //   })
-  // }
-
-  // submit(){
-  //   console.log("Working")
-  // }
+  checkUserName() {
+    for (let i = 0; i < this.userData.userData.length; i++) {
+      this.userNameAvail = false;
+      if (this.registerForm.controls.username.value == this.userData[i]['username']) {
+        this.userNameAvail = true;
+        break;
+      }
+    }
+  }
 
 }
