@@ -40,12 +40,6 @@ export class LoginComponent implements OnInit {
     } else {
       alert("Invalid username password..!");
     }
-    // if (this.loginForm.valid && this.loginForm.controls.username.value == "ADMIN" && this.loginForm.controls.password.value == "12345") {
-    //   localStorage.setItem('user', this.user)
-    //   this.router.navigateByUrl('/dashboard');
-    // } else {
-    //   alert("Invalid username password..!");
-    // }
   }
 
 }

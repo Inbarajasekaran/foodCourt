@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, RouterEvent } from '@angular/router';
+import { Router } from '@angular/router';
 import { UserDataService } from '../service/user-data.service';
 
 @Component({
@@ -44,7 +44,7 @@ export class RegisterationComponent implements OnInit {
         }
       }
       if (this.dataAvail == true) {
-        this.userData.userData.push({username: this.registerForm.controls.username.value, password: this.registerForm.controls.password.value}) 
+        this.userData.userData.push({ username: this.registerForm.controls.username.value, password: this.registerForm.controls.password.value })
         console.log(this.userData)
         this.router.navigateByUrl('/dashboard');
       }
