@@ -24,14 +24,15 @@ export class RegisterationComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       username: ['', [Validators.required]],
-      phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+      phone: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(10), Validators.maxLength(10)]],
+      // phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(4)]],
       retypePassword: ['', [Validators.required]]
     });
   }
 
-  get fval() { return this.registerForm.controls; } //insted of using formControlName.controls.errors in template used fval().controls.errors  
+  get fval() { return this.registerForm.controls } //insted of using formControlName.controls.errors in template used fval().controls.errors  
 
   onFormSubmit() {
     this.submitted = true;

@@ -62,8 +62,9 @@
                     <input type="text" formControlName="phone" class="form-control"
                         [ngClass]="{ 'is-invalid': submitted && fval.phone.errors }" placeholder="Enter Phone here" />
                     <div *ngIf="submitted && fval.phone.errors" class="error-div">
-                        <div *ngIf="fval.phone.errors.required">Phone is required</div>
-                        <div *ngIf="fval.phone.errors.minlength || fval.phone.errors.maxlength">Check the number</div>
+                        <div *ngIf="fval.phone.errors.required">10 Digit Phone Number is required</div>
+                        <!-- <div *ngIf="fval.phone.errors.minlength || fval.phone.errors.maxlength">Check the number</div> -->
+                        <div *ngIf="fval.phone.errors.pattern">Check the number</div>
                     </div>
                 </div>
             </div>
