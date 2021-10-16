@@ -12,8 +12,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, },
   { path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuardGuard] },
   { path: 'menu', component: FoodMenuComponent, canActivate:[AuthGuardGuard] },
-  { path: 'register', component:RegisterationComponent },
+  { path: 'register', component:RegisterationComponent, canActivate:[AuthGuardGuard] },
 ];
+
+RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

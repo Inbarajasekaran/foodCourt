@@ -8,7 +8,6 @@ body {
     padding-top: 150px !important;
 }
 
-
 .body-div {
     background: #00d2ff;
     /* fallback for old browsers */
@@ -68,17 +67,24 @@ body {
 .mat-body {
     display: flex;
     justify-content: center;
-    width: 550px;
+    /* width: 550px; */
 }
 
 mat-form-field {
-    width: 420px !important;
+    width: 350px !important;
 }
 
-@media screen and (max-width: 426px) {
+mat-card {
+    height: 400px !important;
+}
+
+@media screen and (max-width: 639px) {
     .body-div {
         padding-top: 0px !important;
         padding-bottom: 0px !important;
+    }
+    mat-card {
+        height: 350px !important;
     }
     mat-form-field {
         font-size: 12px;
@@ -91,5 +97,11 @@ mat-form-field {
         display: flex;
         justify-content: center;
         width: 200px;
+    }
+}
+
+@media screen and (max-height: 545px) {
+    .body-div {
+        overflow-y: scroll;
     }
 }
