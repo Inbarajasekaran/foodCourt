@@ -12,11 +12,12 @@ import { UserDataService } from '../service/user-data.service';
 
 export class LoginComponent implements OnInit {
 
-  user = '1';
+  userToken: string = '';
   loginForm: FormGroup
-  isAvail = false;
+  isAvail: boolean = false;
+  generateToken: any = '';
 
-  constructor(private fb: FormBuilder, private router: Router, private userData: UserDataService) { }
+  constructor(private fb: FormBuilder, private router: Router, private userData: UserDataService) { }x
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -31,11 +32,13 @@ export class LoginComponent implements OnInit {
       if (this.loginForm.valid && this.loginForm.controls.username.value == this.userData.userData[i]['username'] &&
         this.loginForm.controls.password.value == this.userData.userData[i]['password']) {
         this.isAvail = true;
+        this.userData.userData[i]['userToken'] = Math.floor(100000 + Math.random() % 7 ).toString().substr(0, 10);
+        this.userToken = this.userData.userData[i]['userToken'];
         break;
       }
     }
     if (this.isAvail == true) {
-      localStorage.setItem('user', this.user);
+      localStorage.setItem("user", this.userToken);
       this.router.navigateByUrl('/dashboard');
     } else {
       alert("Invalid username password..!");

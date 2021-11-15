@@ -8,8 +8,8 @@ import { RegisterationComponent } from './registeration/registeration.component'
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent,},
-  { path: 'login', component: LoginComponent, },
+  { path: '', component: LoginComponent, canActivate:[AuthGuardGuard] },
+  { path: 'login', component: LoginComponent, canActivate:[AuthGuardGuard]  },
   { path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuardGuard] },
   { path: 'menu', component: FoodMenuComponent, canActivate:[AuthGuardGuard] },
   { path: 'register', component:RegisterationComponent, canActivate:[AuthGuardGuard] },

@@ -1,33 +1,39 @@
-    <div class="col-12 p-0 m-0" *ngIf="!loginPage">
-        <mat-toolbar>
-            <div class="col-8">
-                <button mat-icon-button (click)="opened = !opened">
-                    <mat-icon>menu</mat-icon>
-                </button>
-                <span style="vertical-align: middle;">Food Court</span>
-                <button mat-icon-button class="example-icon favorite-icon"
-                    aria-label="Example icon-button with heart icon">
-                    <mat-icon>favorite</mat-icon>
-                </button>
-            </div>
+<div class="col-12 p-0 m-0" *ngIf="!loginPage && !registerationPage">
+    <mat-toolbar>
+        <div class="col-8">
+            <button mat-icon-button (click)="opened = !opened">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span style="vertical-align: middle;">Food Court</span>
+            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+                <mat-icon>favorite</mat-icon>
+            </button>
+        </div>
 
-            <div class="col-4">
-                <div class="d-flex justify-content-end">
-                    <button mat-icon-button aria-label="Example icon-button with share icon">
+        <div class="col-4">
+            <div class="d-flex justify-content-end">
+                <button mat-icon-button aria-label="Example icon-button with share icon">
+                    <a routerLink="/dashboard" style="color: black;">
                         <mat-icon>dashboard</mat-icon>
-                    </button>
-                </div>
+                    </a>
+                </button>
             </div>
-        </mat-toolbar>
-    </div>
-
-    <mat-sidenav-container>
-        <mat-sidenav mode="side" [(opened)]="opened">Side Nav</mat-sidenav>
-        <mat-sidenav-content [ngStyle]="{'padding' : router.url == '/' || 'login' ? '0px' : '18px'}">
-            <div [ngClass]="{'col-12 pt-0 p-0 m-0' : router.url == '/' , 'col-12 p-0 m-0' : router.url != '/'}">
-                <!-- <div [ngClass]="router.url == '/' ? 'col-12 pt-0 p-0 m-0' : 'col-12 pt-3 p-3 m-0'"> -->
-                <!-- Content goes here -->
-             <router-outlet></router-outlet>
-            </div>
-        </mat-sidenav-content>
-    </mat-sidenav-container>
+        </div>
+    </mat-toolbar>
+</div>
+<!-- style="height:calc(100vh - 7%);"  -->
+<mat-sidenav-container [ngStyle]= "{'height' : (router.url == '/' || router.url ==  '/login') ? '100vh' : 'calc(100vh - 64px)'} ">
+    <mat-sidenav mode="side" [(opened)]="opened" *ngIf="!loginPage && !registerationPage">
+        <div class="col-12 row m-0">
+            <a routerLink="/dashboard" class="py-2">Dashboard</a>
+            <a routerLink="/menu" class="py-2">Food Menu</a>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content [ngStyle]="{'padding' : router.url == '/' || 'login' ? '0px' : '18px' }" >
+        <div [ngClass]="{'col-12 pt-0 p-0 m-0' : router.url == '/' , 'col-12' : router.url != '/'}">
+            <!-- <div [ngClass]="router.url == '/' ? 'col-12 pt-0 p-0 m-0' : 'col-12 pt-3 p-3 m-0'"> -->
+            <!-- Content goes here -->
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

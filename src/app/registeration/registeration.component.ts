@@ -45,7 +45,7 @@ export class RegisterationComponent implements OnInit {
         }
       }
       if (this.dataAvail == true) {
-        this.userData.userData.push({ username: this.registerForm.controls.username.value, password: this.registerForm.controls.password.value })
+        this.userData.userData.push({ username: this.registerForm.controls.username.value, password: this.registerForm.controls.password.value, userToken: null })
         console.log(this.userData)
         this.router.navigateByUrl('/dashboard');
       }

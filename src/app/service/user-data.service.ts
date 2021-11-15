@@ -5,8 +5,10 @@ import { Injectable } from '@angular/core';
 })
 export class UserDataService {
 
-  constructor() { }
+  constructor() { 
+    
+  }
 
-  userData = [{ username: 'Inba', password: '0011' }, { username: 'ADMIN', password: '12345' },]
+  userData = [{ username: 'Inba', password: '0011', userToken:  null}, { username: 'ADMIN', password: '12345', userToken: null },]
   
 }

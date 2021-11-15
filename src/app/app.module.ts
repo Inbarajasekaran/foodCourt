@@ -7,7 +7,6 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegisterationComponent } from './registeration/registeration.component';
 import { MaterialModule } from './materialModule/material';
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { FoodMenuComponent } from './components/food-menu/food-menu.component';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { FoodMenuComponent } from './components/food-menu/food-menu.component';
     DashboardComponent,
     RegisterationComponent,
     FoodMenuComponent,
-    ToolbarComponent,
   ],
   imports: [
     BrowserModule,
