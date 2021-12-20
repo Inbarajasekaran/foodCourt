@@ -10,15 +10,20 @@ export class AuthGuardGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    // console.log(state.url);
-    // console.log(this.getToken())
-    if ((state.url == "/login" || state.url == "/" || state.url == '/register') && !this.getToken()) {
-      return true;
+    console.log(state.url);
+    console.log(this.getToken())
+    if ((state.url == "/login" || state.url == "/" || state.url == '/register')) {
+      if(!this.getToken()) 
+        return true;
+      else {
+        this.router.navigateByUrl("/dashboard");
+        return true;
+      }
+    } else if (!this.getToken()){
+      this.router.navigateByUrl("/login");
+      return false;
     }
-    else if (!this.getToken() && state.url != "/login" || state.url != '/register') {
-      this.router.navigateByUrl("/");
-      return true;
-    } else {
+     else {
       return true;
     }
   }
