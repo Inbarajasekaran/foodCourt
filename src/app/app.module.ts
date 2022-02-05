@@ -8,6 +8,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegisterationComponent } from './registeration/registeration.component';
 import { MaterialModule } from './materialModule/material';
 import { FoodMenuComponent } from './components/food-menu/food-menu.component';
+import { CheffListComponent } from './components/cheff-list/cheff-list.component';
+import { TodaysSpecialComponent } from './components/todays-special/todays-special.component';
+import { TopRatingsComponent } from './components/top-ratings/top-ratings.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,9 @@ import { FoodMenuComponent } from './components/food-menu/food-menu.component';
     DashboardComponent,
     RegisterationComponent,
     FoodMenuComponent,
+    CheffListComponent,
+    TodaysSpecialComponent,
+    TopRatingsComponent,
   ],
   imports: [
     BrowserModule,

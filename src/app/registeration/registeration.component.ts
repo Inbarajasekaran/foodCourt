@@ -10,14 +10,14 @@ import { UserDataService } from '../service/user-data.service';
 })
 export class RegisterationComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private userData: UserDataService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private userDataService: UserDataService) { }
 
   registerForm: FormGroup;
   loading = false;
   submitted = false;
   dataAvail = true;
   userNameAvail = false;
-  // userData = [{ username: 'Inba', password: '0011' }, { username: 'ADMIN', password: '12345' },]
+  // userDataService = [{ username: 'Inba', password: '0011' }, { username: 'ADMIN', password: '12345' },]
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -37,16 +37,16 @@ export class RegisterationComponent implements OnInit {
   onFormSubmit() {
     this.submitted = true;
     if (this.registerForm.valid) {
-      for (let i = 0; i < this.userData.userData.length; i++) {
+      for (let i = 0; i < this.userDataService.userDataVal.length; i++) {
         this.dataAvail = true
-        if (this.registerForm.controls.username.value == this.userData[i]['username']) {
+        if (this.registerForm.controls.username.value == this.userDataService[i]['username']) {
           this.dataAvail = false;
           break;
         }
       }
       if (this.dataAvail == true) {
-        this.userData.userData.push({ username: this.registerForm.controls.username.value, password: this.registerForm.controls.password.value, userToken: null })
-        console.log(this.userData)
+        this.userDataService.userDataVal.push({ username: this.registerForm.controls.username.value, password: this.registerForm.controls.password.value, userToken: null })
+        console.log(this.userDataService)
         this.router.navigateByUrl('/dashboard');
       }
     }
@@ -58,9 +58,9 @@ export class RegisterationComponent implements OnInit {
   }
 
   checkUserName() {
-    for (let i = 0; i < this.userData.userData.length; i++) {
+    for (let i = 0; i < this.userDataService.userDataVal.length; i++) {
       this.userNameAvail = false;
-      if (this.registerForm.controls.username.value == this.userData[i]['username']) {
+      if (this.registerForm.controls.username.value == this.userDataService[i]['username']) {
         this.userNameAvail = true;
         break;
       }

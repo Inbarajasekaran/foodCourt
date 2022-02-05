@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   isAvail: boolean = false;
   generateToken: any = '';
 
-  constructor(private fb: FormBuilder, private router: Router, private userData: UserDataService) { }x
+  constructor(private fb: FormBuilder, private router: Router, private userDataService: UserDataService) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -27,13 +27,13 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-    for (let i = 0; i < this.userData.userData.length; i++) {
+    for (let i = 0; i < this.userDataService.userDataVal.length; i++) {
       this.isAvail = false;
-      if (this.loginForm.valid && this.loginForm.controls.username.value == this.userData.userData[i]['username'] &&
-        this.loginForm.controls.password.value == this.userData.userData[i]['password']) {
+      if (this.loginForm.valid && this.loginForm.controls.username.value == this.userDataService.userDataVal[i]['username'] &&
+        this.loginForm.controls.password.value == this.userDataService.userDataVal[i]['password']) {
         this.isAvail = true;
-        this.userData.userData[i]['userToken'] = Math.floor(100000 + Math.random() % 7 ).toString().substr(0, 10);
-        this.userToken = this.userData.userData[i]['userToken'];
+        this.userDataService.userDataVal[i]['userToken'] = Math.random().toString(36).substring(2)
+        this.userToken = this.userDataService.userDataVal[i]['userToken'];
         break;
       }
     }

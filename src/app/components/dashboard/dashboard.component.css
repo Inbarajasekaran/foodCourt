@@ -1,0 +1,11 @@
+.desc-card {
+    transition: transform 0.9s;
+}
+
+.card-elt :hover>.desc-card {
+    -ms-transform: scale(1.1);
+    /* IE 9 */
+    -webkit-transform: scale(1.1);
+    /* Safari 3-8 */
+    transform: scale(1.1);
+}

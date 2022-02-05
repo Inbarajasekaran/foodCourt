@@ -31,4 +31,8 @@ export class AppComponent {
         }
       });
   }
+
+  logout() {
+    localStorage.removeItem("user")
+  }
 }

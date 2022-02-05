@@ -1,0 +1,31 @@
+<div class="col-12 m-0 p-0">
+    <div class="col-12 d-flex justify-content-center m-0 mat-elevation-z1">
+        <div class="container">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>Cheffs</mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="col-12 row p-2">
+                    <div class="col-6 m-0 p-2" *ngFor="let getTopList of topRatesCheff">
+                        <img [src]="getTopList.img" style="height: 100px; width: 100px;" />
+                        <span style="color: grey;"> Name: </span>{{getTopList.name}}
+                        <span style="color: grey;"> Rating: </span>{{getTopList.rating}}
+                        <span style="color: grey;"> Special: </span>{{getTopList.specialised}}
+                    </div>
+                </div>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>Foods</mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="col-12 row p-2">
+                    <h2>Add Top rated Foods</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat sit aspernatur praesentium
+                        voluptatibus, nostrum cum est iusto. Praesentium, vel recusandae. Illum molestias suscipit
+                        soluta vitae minus eaque consequuntur saepe. Provident?</p>
+                </div>
+
+            </mat-expansion-panel>
+        </div>
+    </div>
+</div>

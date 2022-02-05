@@ -1,0 +1,18 @@
+<div class="col-12">
+    <div class="m-2 p-2 mat-elevation-z1">
+        <div class="col-12 p-0 m-0 row" *ngIf="todays_Special_Foods.length > 0; else noOfferTemp">
+            <div class="col-4" *ngFor="let loop of todays_Special_Foods">
+                {{loop.foodName}}
+                {{loop.preparedBy}}
+                {{loop.actualPrice}}
+                {{loop.todaysPrice}}
+            </div>
+        </div>
+        <ng-template #noOfferTemp>
+            <div class="col-12 p-0 m-0 row justify-content-center">
+                <img src="assets/noSpecial.svg" height="500px;" width="500px;">
+                <h2 class="mt-5" style="color: red;text-align: center;">It's a no offers day  :(</h2>
+            </div>
+        </ng-template>
+    </div>
+</div>

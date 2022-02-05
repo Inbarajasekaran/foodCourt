@@ -1,0 +1,27 @@
+<div class="col-12 p-0 m-0 mat-elevation-z6" style="max-height: calc(100vh - 68px); overflow-y: scroll;">
+    <div class="container">
+        <div class="row p-3 justify-content-around col-12 p-0 m-0">
+            <div class="col-4 p-2 m-3 mat-elevation-z1" style="width: 300px;"
+                *ngFor="let loop of cheffDetails; let i = index">
+                <div class="col-12 p-0 m-0 row justify-content-center">
+                    <img [src]="loop.img" style="height: 36%; width:36%;">
+                    <div style="text-align: center;">
+                        <h4 style="font-weight: bold" class="m-1">Name : {{cheffDetails[i]['name']}}</h4>
+                        <p>
+                            Specialised :
+                            <span *ngFor="let getSpcl of cheffDetails[i]['special']; let ind = index">
+                                {{getSpcl}}{{ind < cheffDetails[i]['special'].length-1 ? "," : "" }} </span>
+                        </p>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita aliquid officiis tenetur sed
+                        magnieum, amet officia in ratione provident quod a animi quia nesciunt rem at facere? Ducimus,
+                        laborum.
+                    </p>
+                    <button mat-icon-button *ngFor="let ratingVal of cheffDetails[i]['rating']" style="color: gold;">
+                        <mat-icon>grade</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

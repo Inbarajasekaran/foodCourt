@@ -1,20 +1,86 @@
 <div class="col-12 col-md-12 p-2">
     <div class="m-2 mat-elevation-z1">
-        <div class="col-12 d-flex">
-            <div class="col-6 col-md-6 d-flex justify-content-center">
-                <h2>Food Menu</h2>
+        <div class="col-12 justify-content-around row p-5">
+            <div class="col-4 col-md-4 mat-card mat-elevation-z3 card-elt"
+                style="cursor: pointer; width: 250px; height: 250px;">
+                <div class="col-12 p-0 m-0" routerLink="/menu">
+                    <div class="d-flex justify-content-center col-12 p-0 m-0 mt-4">
+                        <img src="/assets/menu.png" style="height: 150px; width: 150px;">
+                    </div>
+                    <div class="desc-card">
+                        <h2 class="row justify-content-center mt-4">Food Menu</h2>
+                    </div>
+                </div>
             </div>
-            <div class="col-6 col-md-6 d-flex justify-content-center">
-                <h2>Cheff List</h2>
+            <div class="col-4 col-md-4 mat-card mat-elevation-z3 card-elt"
+                style="cursor: pointer; width: 250px; height: 250px;">
+                <div class="col-12 p-0 m-0" routerLink="/cheffs">
+                    <div class="d-flex justify-content-center col-12 p-0 m-0 mt-4">
+                        <img src="/assets/cheff_list.png" style="height: 150px; width: 150px;">
+                    </div>
+                    <div class="desc-card">
+                        <h2 class="row justify-content-center mt-4">Our Cheffs</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-md-4 mat-card mat-elevation-z3 card-elt"
+                style="cursor: pointer; width: 250px; height: 250px;">
+                <div class="col-12 p-0 m-0" routerLink="/todays-special">
+                    <div class="d-flex justify-content-center col-12 p-0 m-0 mt-4">
+                        <img src="/assets/todays-special.png" style="height: 150px; width: 150px;">
+                    </div>
+                    <div class="desc-card">
+                        <h2 class="row justify-content-center mt-4">Today's Special</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-md-4 mat-card mat-elevation-z3 card-elt"
+                style="cursor: pointer; width: 250px; height: 250px;">
+                <div class="col-12 p-0 m-0" routerLink="/top-ratings">
+                    <div class="d-flex justify-content-center col-12 p-0 m-0 mt-4">
+                        <img src="/assets/ratings.png" style="height: 150px; width: 150px;">
+                    </div>
+                    <div class="desc-card">
+                        <h2 class="row justify-content-center mt-4">Top Ratings</h2>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-12 d-flex">
-            <div class="col-6 col-md-6 d-flex justify-content-center">
-                <h2>Today's Special</h2>
+    </div>
+    <div class="m-2 mat-elevation-z3">
+        <div class="p-2">
+            <h2>Your reciepes are welcome</h2>
+            <div class="col-12 row justify-content-center p-2">
+                <div class="col-md-6 col-sm-12 col-lg-6">
+                    <div class="col-12 p-0 m-0 row justify-content-center">
+                        <img src="assets/add_reciepe.svg" height="200px;" width="200px">
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 col-lg-6 d-flex align-items-center">
+                    <div class="col-12">
+                        <h3 class="p-0">Add Recipe and Become a share partner with us..!</h3>
+                        <p class="mt-3" style="font-size: medium;">
+                            Add you own reciepes and if it attract most of the audience and it will added to the menu
+                            list
+                            and pay
+                            for you a amount form the recipe profit as 30%. In case of your recipe take our profit to
+                            more
+                            than 100%
+                            for a year Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae deleniti qui
+                            laboriosam
+                            numquam inventore minima, assumenda cumque sapiente consequuntur tenetur explicabo
+                            reiciendis
+                            ratione.
+                            Cumque, ea quaerat facilis aperiam aspernatur a?</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-6 col-md-6 d-flex justify-content-center">
-                <h2>Top Ratings</h2>
-            </div>
+        </div>
+        <div class="col-12 p-3 row justify-content-center">
+            <button mat-raised-button color="primary" style="width: 150px !important;" (click)="addReciepe()">
+                <mat-icon>add</mat-icon>
+                Add Reciepe
+            </button>
         </div>
     </div>
 </div>
